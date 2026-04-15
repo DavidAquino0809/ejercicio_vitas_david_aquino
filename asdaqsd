@@ -7,3 +7,4 @@ create or replace view porteños as select * from clientes c join ciudad ci on c
 create view productos as select precio_producto from productos where precio_producto > 100;
 create view cliente_ ciuadad as select c.nombre, c.apellido ci.nombre from clientes c join ciudad ci on c.localidad = ci.id;
 create view provincia_ciudad as select ci.nombre, p.nombre from ciudades ci join provincias p on ci.provincia = p.id;
+create view ultima_compra as select * from clientes max(co.fecha) from clientes c join compras c on  c.id = co.id_clientes group by c.id, c.nombre, c.apellido;
