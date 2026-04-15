@@ -1,7 +1,7 @@
 create view nombre_clientes as select * from clientes;
 insert into nombre_clientes(nombre, apellido) values (Nicolas, Aquino);
 drop view if exists nombre_clientes;
-create view productos_bic  as * from productos where nombre_producto = "BIC";
+create view productos_bic  as select * from productos where nombre_producto = "BIC";
 create view porteños as select * from clientes where ciudad in ( "buenos aires", "ciudad autonoma");
 create or replace view porteños as select * from clientes c join ciudad ci on c.localidad = c.id where ci.nombre = "ciudad autonoma";
 create view productos as select precio_producto from productos where precio_producto > 100;
